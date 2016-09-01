@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="SelectedItemView">
+    <attr format="color|reference" name="selected_bg"/>
+    <attr format="color|reference" name="selected_text_color"/>
+    <attr format="color|reference" name="default_bg"/>
+    <attr format="color|reference" name="default_text_color"/>
+    <attr format="dimension" name="text_size"/>
+    <attr format="dimension" name="item_margin"/>
+  </declare-styleable>
+</resources>

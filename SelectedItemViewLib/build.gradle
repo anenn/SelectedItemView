@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.2"
+
+  defaultConfig {
+    minSdkVersion 11
+    targetSdkVersion 24
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {}
+
+// repository setting
+group = 'com.anenn.selecteditemview' // Change this to match your package name
+version = '0.0.1' // Change this to match your version number
+
+task generateSourcesJar(type: Jar) {
+  from android.sourceSets.main.java.srcDirs
+  classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+  source = android.sourceSets.main.java.srcDirs
+  classpath += project.files(android.getBootClasspath()
+      .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+  from generateJavadocs.destinationDir
+  classifier 'javadoc'
+}
+
+artifacts {
+  archives generateJavadocsJar
+  archives generateSourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+  user = properties.getProperty("bintray.user")
+  key = properties.getProperty("bintray.key")
+  pkg {
+    repo = 'maven'
+    name = 'SelectedItemView'
+    desc = "To show animation when you select a item in a custom view."
+
+    version {
+      name = '0.0.1'
+      desc = 'To show animation when you select a item in a custom view.'
+      vcsTag = 'android, animation'
+    }
+
+    licenses = ['Apache-2.0']
+    vcsUrl = 'https://github.com/anenn/SelectedItemView.git'
+    websiteUrl = 'https://github.com/anenn/SelectedItemView'
+
+    labels = ['android']
+    publish = true
+    publicDownloadNumbers = true
+  }
+  configurations = ['archives']
+}
