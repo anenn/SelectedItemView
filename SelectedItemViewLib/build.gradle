@@ -24,7 +24,7 @@ dependencies {}
 
 // repository setting
 group = 'com.anenn.selecteditemview' // Change this to match your package name
-version = '0.0.1' // Change this to match your version number
+version = '0.0.2' // Change this to match your version number
 
 task generateSourcesJar(type: Jar) {
   from android.sourceSets.main.java.srcDirs
@@ -58,7 +58,7 @@ bintray {
     desc = "To show animation when you select a item in a custom view."
 
     version {
-      name = '0.0.1'
+      name = '0.0.2'
       desc = 'To show animation when you select a item in a custom view.'
       vcsTag = 'android, animation'
     }

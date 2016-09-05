@@ -26,7 +26,7 @@ public class SelectedItemView extends View {
   private static final int SELECTED_TEXT_COLOR = Color.parseColor("#FFFFFF");       // 选中的文本的字体颜色
   private static final int SELECTED_BG = Color.parseColor("#ED5296");               // 选中的背景色
   private static final int DEFAULT_BG = Color.parseColor("#EAEAEA");                // 默认的背景色
-  private static final int DEFAULT_TEXT_SIZE = 35;                                  // 默认文本字体大小
+  private static final int DEFAULT_TEXT_SIZE = 10;                                  // 默认文本字体大小
   private static final int DEFAULT_MARGIN = 10;                                     // 默认 Item 之间的间隙
 
   private List<String> mSelectItemList;
@@ -68,8 +68,8 @@ public class SelectedItemView extends View {
   }
 
   private void initAttributes(Context context, AttributeSet attrs, int defStyleAttr) {
-    final TypedArray typedArray =
-        context.getTheme().obtainStyledAttributes(attrs, R.styleable.SelectedItemView, defStyleAttr, 0);
+    final TypedArray typedArray = context.getTheme()
+        .obtainStyledAttributes(attrs, R.styleable.SelectedItemView, defStyleAttr, 0);
 
     mDefaultBg = typedArray.getColor(R.styleable.SelectedItemView_default_bg, DEFAULT_BG);
     mSelectedBg = typedArray.getColor(R.styleable.SelectedItemView_selected_bg, SELECTED_BG);
@@ -77,10 +77,10 @@ public class SelectedItemView extends View {
         typedArray.getColor(R.styleable.SelectedItemView_default_text_color, DEFAULT_TEXT_COLOR);
     mSelectedTextColor =
         typedArray.getColor(R.styleable.SelectedItemView_selected_text_color, SELECTED_TEXT_COLOR);
-    mTextSize =
-        typedArray.getDimensionPixelSize(R.styleable.SelectedItemView_text_size, DEFAULT_TEXT_SIZE);
-    mItemMargin =
-        typedArray.getDimensionPixelOffset(R.styleable.SelectedItemView_item_margin, DEFAULT_MARGIN);
+    mTextSize = typedArray.getDimensionPixelSize(R.styleable.SelectedItemView_text_size,
+        (int) DimenUtil.dp2sp(context, DEFAULT_TEXT_SIZE));
+    mItemMargin = typedArray.getDimensionPixelOffset(R.styleable.SelectedItemView_item_margin,
+        DEFAULT_MARGIN);
 
     typedArray.recycle();
 
