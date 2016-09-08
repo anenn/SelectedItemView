@@ -11,7 +11,7 @@ import android.util.TypedValue;
 public class DimenUtil {
 
   public static float dp2sp(Context context, int value) {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value,
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value,
         context.getResources().getDisplayMetrics());
   }
 }

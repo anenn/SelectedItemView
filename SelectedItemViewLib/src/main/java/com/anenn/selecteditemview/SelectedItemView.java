@@ -26,7 +26,7 @@ public class SelectedItemView extends View {
   private static final int SELECTED_TEXT_COLOR = Color.parseColor("#FFFFFF");       // 选中的文本的字体颜色
   private static final int SELECTED_BG = Color.parseColor("#ED5296");               // 选中的背景色
   private static final int DEFAULT_BG = Color.parseColor("#EAEAEA");                // 默认的背景色
-  private static final int DEFAULT_TEXT_SIZE = 10;                                  // 默认文本字体大小
+  private static final int DEFAULT_TEXT_SIZE = 12;                                  // 默认文本字体大小
   private static final int DEFAULT_MARGIN = 10;                                     // 默认 Item 之间的间隙
 
   private List<String> mSelectItemList;
@@ -44,7 +44,7 @@ public class SelectedItemView extends View {
   private float mItemWidth;                                  // 每个 Item 的宽度
   private float mItemHeight;                                 // 每个 Item 的高度
 
-  private RectF mRectF;
+  private RectF mRectF;                                      // 矩形, 用于绘制每个 Item 的边界
   private Paint mPaint;
   private float mProgress;                                   // 当前动画的进度
   private ValueAnimator mProgressAnimator;

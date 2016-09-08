@@ -58,7 +58,7 @@ bintray {
     desc = "To show animation when you select a item in a custom view."
 
     version {
-      name = '0.0.2'
+      name = '0.1.0'
       desc = 'To show animation when you select a item in a custom view.'
       vcsTag = 'android, animation'
     }
